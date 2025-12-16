@@ -1,0 +1,25 @@
+.page-title {
+ text-align: center; /*centered text*/
+  color: purple; /*purple color*/
+  text-decoration: underline; /*underlined text*/
+  margin-bottom: 20px; /*space below title*/
+}
+
+.section-title {
+  font-weight: bold; /*bold text*/
+  color: purple; /*purple color*/
+
+}
+
+  #results li {
+  margin-bottom: 15px; /*space between list items*/
+  padding: 10px; /*padding inside list items*/
+  border: 1px solid purple; /*purple border*/
+  border-radius: 6px; /*rounded corners*/
+  transition: background-color 0.3s ease, transform 0.3s ease; /* transition*/
+}
+
+#results li:hover {
+    background-color: lavender; /*hover background color*/
+    transform: scale(1.05); /*slight zoom on hover*/
+}

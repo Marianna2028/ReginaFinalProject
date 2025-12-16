@@ -1,0 +1,9 @@
+{
+  "routes": [
+    { "src": "/styles.css", "dest": "/styles.css" },
+    { "src": "/app_code_dev.js", "dest": "/app_code_dev.js" },
+    { "src": "/handlebars-v4.7.7.js", "dest": "/handlebars-v4.7.7.js" },
+    { "src": "/info.json", "dest": "/info.json" },
+    { "src": "/(.*)", "dest": "/dev_html.html" }
+  ]
+}

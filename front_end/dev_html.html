@@ -1,0 +1,79 @@
+<html>
+
+<!--http://localhost:3000/dev_html.html-->
+<head>
+  <!-- Handlebars library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"></script>
+  
+  <!--CSS and Javascript links -->
+  <link rel="stylesheet" href="styles.css">
+  <script src="app_code_dev.js"></script>
+</head>
+
+<body>
+
+<!-- Page title -->
+<h1 class="page-title">Employee Search</h1>
+
+<!-- Search form -->
+  <form onsubmit="return false;" id="queryForm">
+
+    <!-- Search by name -->
+   <label class="section-title" for="nameQuery">Search by name:</label><br>
+    <input type="text" id="nameQuery"><br> 
+<input
+  id="queryByName"
+  type="button"
+  value="Query"
+  data-querytype="by_name"
+  onclick="updateView(this)"> <!--Filters results when user clicks button-->
+
+  <!-- Search by age range -->
+<hr>
+    <label class="section-title" for="ageQueryStart">Search by age range:</label><br>
+    <input type="text" id="startAgeQuery" name="Start Age" value="1"> <!--Age Parameter 1-->
+    <input type="text" id="endAgeQuery" name="End Age" value="99"> <!--Age Parameter 2-->
+    <input 
+        id="queryByAgeRange"
+        type="button"
+        value="Query"
+        data-querytype="by_age"
+        onclick="updateView(this)"> <!--Filters results when user clicks button-->
+      
+      
+  </form>
+  
+  <!-- Reset button (Boostrap element)-->
+  <input type="button"
+  class="btn btn-lg" 
+  style="background-color: purple; color: white;" 
+  value="Reset"
+  onclick="resetForm(); 
+  alert('Your form has been reset!')"> <!--Popup alert that will clear form when prompted by user-->
+ 
+  <!-- Results section (Bootsrap element)-->
+   <h5>
+    Employee Results: 
+    <span id="resultCount" class="badge lg-secondary">0 </span> <!--Automatic updated count of results-->
+   </h5>
+
+  <div id="results"></div> 
+
+  <!-- Handlebars template -->
+  <script id="show_results_view" type="text/x-handlebars-template">
+    <!-- Template for searching through json file and displaying employee results -->
+    <ul>
+      {{#each employees}}
+      <li>
+        Name: {{this.employee_name}} <br>
+        Id: {{this.employee_id}} <br>
+        Salary: ${{this.employee_salary}} <br>
+        Age: {{this.employee_age}} <br>
+        Image: {{this.employee_image}} <br>
+      </li>
+      {{/each}}
+    </ul>
+  </script>
+  
+</body>
+</html>
